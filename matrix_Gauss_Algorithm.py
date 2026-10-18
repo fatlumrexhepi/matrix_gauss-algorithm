@@ -1,10 +1,6 @@
 import numpy as np
 
-# Task a)
-# Implement the gaussian elimination method, to solve the given system of linear equations;
-# Add partial pivoting to increase accuracy and stability of the solution;
-# Return the solution for x
-# Assume a square matrix
+# Gaussian elimination with scaled partial pivoting
 def solveLinearSystem(A, b):
 
   A = A.astype(float).copy()
@@ -54,15 +50,7 @@ def solveLinearSystem(A, b):
   return x
 
 
-
-
-  #return np.ones(b.shape)
-
-
-# Task b)
-# Implement a method, checking whether the system is consistent or not;
-# Obviously, you're not allowed to use any method solving that problem for you.
-# Return either true or false
+# Check whether a linear system is consistent
 def isConsistent(A, b):
     A = A.astype(float).copy()
     b = b.astype(float).copy()
@@ -114,9 +102,7 @@ def isConsistent(A, b):
     return True
 
 
-# Task c)
-# Implement a method to compute the daily amounts of chicken breast, brown rice, black beans and avocado to eat to achieve the daily nutritional intake described in the exercise;
-# Return a vector x with the grams of chicken breast, brown rice, black beans and avocado to eat each day.
+# Calculate food quantities to meet nutritional requirements
 def solveNutrients(A, b):
   x = solveLinearSystem(A,b)
   x = np.array(x) * 10
